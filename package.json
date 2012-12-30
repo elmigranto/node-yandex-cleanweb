@@ -1,5 +1,5 @@
 {
-  "name": "node-yandex-cleanweb",
+  "name": "yandex-cleanweb",
   "version": "0.0.0",
   "description": "Yandex.CleanWeb (Captcha & Antispam) Interface",
   "main": "index.js",
