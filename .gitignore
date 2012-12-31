@@ -1,3 +1,11 @@
+# Modules
+
+node_modules
+
+#
+# Github's .gitignore for Node
+#
+
 lib-cov
 *.seed
 *.log

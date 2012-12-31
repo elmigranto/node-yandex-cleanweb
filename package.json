@@ -1,0 +1,23 @@
+{
+  "name": "yandex-cleanweb",
+  "version": "0.0.1",
+  "description": "Yandex.CleanWeb (Captcha & Antispam) Interface",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/elmigranto/node-yandex-cleanweb.git"
+  },
+  "dependencies": {
+    "request": "2.12.x"
+  },
+  "keywords": [
+    "yandex",
+    "cleanweb",
+    "captcha",
+    "antispam"
+  ],
+  "author": "Alexey Zabrodskiy <elmigranto@gmail.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "3be26f974a7d253418eed8aab8870741064768a9"
+}
