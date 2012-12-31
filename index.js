@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var request = require('request');
-var misc = require('./lib/misc');
+var misc = require('node-misc');
 
 var error = misc.errorFn('ECLEANWEB');
 

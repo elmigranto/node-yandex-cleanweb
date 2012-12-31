@@ -8,7 +8,8 @@
     "url": "git://github.com/elmigranto/node-yandex-cleanweb.git"
   },
   "dependencies": {
-    "request": "2.12.x"
+    "request": "2.12.x",
+    "node-misc": "git://github.com/elmigranto/node-misc.git"
   },
   "keywords": [
     "yandex",
