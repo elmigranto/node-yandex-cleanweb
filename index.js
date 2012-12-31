@@ -105,7 +105,7 @@ CleanWeb.prototype.checkCaptcha = function (captcha, value, id, callback) {
   }
 
   var captchaId = (typeof captcha == 'string') ? captcha
-                                               : captcha.id;
+                                               : captcha.captcha;
   callback = misc.cbify(callback);
   var params = {
     captcha : captchaId,
