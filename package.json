@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "request": "2.12.x",
-    "node-misc": "git://github.com/elmigranto/node-misc.git"
+    "node-misc": "git://github.com/elmigranto/node-misc.git",
+    "async": "~0.2.9",
+    "xml2js": "~0.2.8"
   },
   "keywords": [
     "yandex",
