@@ -1,0 +1,10 @@
+{
+  "author": "Author: Alexey Zabrodskiy <elmigranto@gmail.com>",
+  "private": true,
+
+  "dependencies": {
+      "express"         : "~3.0.x"
+    , "jade"            : "*"
+    , "yandex-cleanweb" : "0.0.1"
+  }
+}

@@ -1,0 +1,98 @@
+- self.title   = self.title || 'Solve this CAPTCHA';
+- self.captcha = self.captcha || {captcha: undefined, url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAA8BAMAAADRdeiiAAAAG1BMVEWqqqq7u7usrKyurq60tLS2tra4uLiwsLCysrJNUiTIAAACtklEQVRYhe1WwW7TQBDdxG6cIwNNmqPTqrTHhArKMRUCcowrJK64ILVHgqjaY3NA4rOZmV2vZ5y1rR6R9h2St9l9nnmzO+sYExERERER8R/iWPBhC+/AMEgVko8A089ucF6EeQfelwBfFt2KMa5B3NgB8+97vAOnvOypWzECi5wGV5YvmrwdCdRB2hUjmKwfcfob8hTg7uI3wMsG78ASlz08Fk/ditEdehgWcMSKSfCzHcOShSbvVmSVH/ZLfjJ2LHk7UjHfqxjDFD8BftKgoBJL3o45zDzvVWB83kQebDElySv8yfkrual1u3o6pAgEGbtyzuGF4g5juObv5TT3ugJW9fSeogEuV+q8D+CV4g5zmOQ2443X4QYkf9e/iAYUDaRwaMyBPSl4Co4Ud8CnkxV5fPCnc2rmW2NCigYGNDNyOdByySssyYoyglUuuAFXJqjQ2FELDfyymeLKiuoDukim609AdQgpFLCnVvWyVARJpQQDnEgjFGSKXfGOeiOokDgAOjG9QdBKqRo6tTcr5rjpD7LjOvaVi28qaYSCcANusdp95cp458TWzRRXVtTNlLoGHKmjEg6ytdLq8NnTVXMdJBfjqgFtWiGFNLKROVBOktegcl2rIIfO0axF4bFz+VSSOVZYcmmkVFYy4SSoEOm4zcz4KrZXnOTCyCRRVoZuFZUqqPC4cimgpHrxrhQXRja27T1Ku4qyDyk8TsH/WrAlu1ry2oi/wRx2tgj8vgoofHplfRq2vHev2bfkwojRVuZchTG3y75CpAdfHwiG9g8+mLOSj4fk1QMnIpYFPv72+KzgmX2FMOxg+Hrwf3Akt8jcw+VLy9hLuLpcGopgEPdPzZ53yS3uXdnE65fSh6pD9xXBIOYeyQ+XqOTteEsxFs9RGHNy+SbI25FcXjxTERERERFh/gELnntIurCk0gAAAABJRU5ErkJggg=='};
+
+//- Init variables for Resut field based on `self.result`.
+- var resultText;
+- var resultCssClass;
+- var gotResult = false;
+- if (typeof self.result == 'boolean') {
+-   gotResult  = true;
+-   resultText = resultCssClass = self.result ? 'success' : 'error';
+- }
+- else {
+-   resultText = 'waiting for input…';
+-   resultCssClass = 'unobtrusive';
+- }
+
+doctype html
+html
+  head
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    title= self.title
+
+    style
+      .container {
+        width: 640px;
+        margin: 0px auto;
+      }
+
+      .left {
+        float: left;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .captcha {
+        width: 200px;
+        height: 60px;
+        border: 1px solid #999;
+      }
+
+      .form-element {
+        margin: 10px;
+      }
+
+      .success {
+        color: green;
+      }
+
+      .error {
+        color: red;
+      }
+
+      .unobtrusive {
+        font-size: 80%;
+        color: gray;
+      }
+
+      .monospaced {
+        /* Sorry, if your favourite font didn't make it. */
+        font-family: Menlo, Consolas, Courier New, monospace;
+        background-color: #eee;
+        padding: 0.1em 0.4em;
+      }
+
+  body: .container
+    form(action='/', method='post')
+      fieldset
+        legend= self.title
+
+        .captcha.left.form-element(style='background: url(#{self.captcha.url})')
+        .form-element.left
+          input(type='text', name='answer', placeholder='Answer', autofocus, disabled=gotResult)
+          input(type='submit', disabled=gotResult)
+          br
+          .form-element
+            span.unobtrusive Result:&#x20;
+            span(class= resultCssClass)!= resultText + '&#x20;'
+            span.unobtrusive [&nbsp;<a href="/" onclick="javascript: document.location.reload(true); return false;">next captcha</a>&nbsp;]
+
+    p.
+      Note that each CAPTCHA ID can only be checked once, all further checks will always fail,
+      regardless of what your have answered. Also, CAPTCHA image will likely not load.
+
+    .text-right.unobtrusive
+      if (self.error instanceof Error)
+        .error!= self.fn.util.format('Failed to load CAPTCHA: <br/>%s', self.error)
+      else
+        p Loaded CAPTCHA ID&#x20;
+          span.monospaced= self.captcha.captcha
+          | ;
+          br
+          | thanks to&#x20;
+          a(href='http://api.yandex.ru/cleanweb/', target='_blank') Yandex
+          | .
+
+
