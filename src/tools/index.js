@@ -1,3 +1,4 @@
 module.exports = {
-  http: require('./http')
+  http: require('./http'),
+  misc: require('./misc')
 };

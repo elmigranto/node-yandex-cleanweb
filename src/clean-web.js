@@ -1,4 +1,3 @@
-var misc    = require('node-misc');
 var Captcha = require('./captcha');
 var tools   = require('./tools');
 
@@ -29,7 +28,7 @@ CleanWeb.prototype.getCaptcha = function (type, callback) {
     callback = type;
     type     = Captcha.TYPE.DEFAULT;
   }
-  callback = misc.cbify(callback);
+  callback = tools.misc.cbify(callback);
 
   var qs = {
     key  : this.apiKey,
@@ -57,7 +56,7 @@ CleanWeb.prototype.getCaptcha = function (type, callback) {
  * @param  {Function}      callback callback(err, Boolean)
  */
 CleanWeb.prototype.checkCaptcha = function (captcha, value, callback) {
-  callback = misc.cbify(callback);
+  callback = tools.misc.cbify(callback);
   var qs = {
     key     : this.apiKey,
     captcha : captcha.id,

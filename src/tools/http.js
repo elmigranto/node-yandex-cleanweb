@@ -1,7 +1,7 @@
 var request = require('request');
 var async   = require('async');
 var xml2js  = require('xml2js').parseString;
-var misc    = require('node-misc');
+var misc    = require('./misc');
 
 function performRequest (options, callback) {
   callback = misc.cbify(callback);
