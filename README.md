@@ -1,4 +1,6 @@
-# yandex-cleanweb
+# CleanWeb API is deprecated by Yandex<br/>(service will be shut down at October 1st)
+
+## yandex-cleanweb
 
 [Yandex.CleanWeb](http://api.yandex.ru/cleanweb/) (Captcha & Antispam) Interface for Node.js
 
